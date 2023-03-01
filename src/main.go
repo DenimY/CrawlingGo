@@ -1,19 +1,22 @@
 package main
 
 import (
-	model "crawling.com/models"
 	m "crawling.com/modules"
 	"log"
-	"strconv"
 )
 
 func main() {
 
+	env, err := m.LoadEnvironment()
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	log.Println("start Main()")
-	//m.Crawling()
+	dataList := m.Crawling(env)
 
 	// test goods excel download
-	var dataList []model.GoodsInfo
+	/*var dataList []model.GoodsInfo
 	i := 1
 	for i < 100 {
 		n := strconv.Itoa(i)
@@ -25,7 +28,7 @@ func main() {
 			Img:       "Img" + n,
 		})
 		i++
-	}
+	}*/
 
 	m.GoodsOutput(dataList)
 
