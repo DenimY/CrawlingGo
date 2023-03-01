@@ -11,7 +11,7 @@ import (
 func excel() {
 
 }
-func goodsOutput(dataList []model.GoodsInfo) {
+func GoodsOutput(dataList []model.GoodsInfo) {
 	f := excelize.NewFile()
 	defer func() {
 		if err := f.Close(); err != nil {
@@ -32,7 +32,6 @@ func goodsOutput(dataList []model.GoodsInfo) {
 		f.SetCellValue(sheetName, "B"+cellNum, data.IdNum)
 		f.SetCellValue(sheetName, "C"+cellNum, data.IdNum)
 		f.SetCellValue(sheetName, "D"+cellNum, data.IdNum)
-		println(index, data)
 	}
 	//통합 문서에 대 한 기본 워크시트를 설정 합니다
 	f.SetActiveSheet(index)
